@@ -14,6 +14,7 @@ public class Post {
     private String description;
     @Temporal(TemporalType.TIMESTAMP)
     private Date created;
+    @Column(name = "is_active")
     private boolean isActive;
     @ManyToOne
     @JoinColumn(name = "model_id")
