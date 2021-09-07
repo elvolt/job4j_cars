@@ -1,10 +1,8 @@
 package ru.job4j.cars.model;
 
 import javax.persistence.*;
-import java.util.Objects;
 
 @Entity
-@Table(name = "photo")
 public class Photo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -43,13 +41,12 @@ public class Photo {
             return false;
         }
         Photo photo = (Photo) o;
-        return id == photo.id
-                && Objects.equals(path, photo.path);
+        return id == photo.id;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, path);
+        return getClass().hashCode();
     }
 
     @Override

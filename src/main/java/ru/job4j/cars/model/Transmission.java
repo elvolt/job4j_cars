@@ -3,10 +3,8 @@ package ru.job4j.cars.model;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 @Entity
-@Table(name = "transmission")
 public class Transmission {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -58,13 +56,12 @@ public class Transmission {
             return false;
         }
         Transmission that = (Transmission) o;
-        return id == that.id
-                && Objects.equals(type, that.type);
+        return id == that.id;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, type);
+        return getClass().hashCode();
     }
 
     @Override

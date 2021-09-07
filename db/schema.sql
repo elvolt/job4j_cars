@@ -47,6 +47,6 @@ create table if not exists post
     body_id         int not null references body (id),
     transmission_id int not null references transmission (id),
     user_id         int not null references users (id),
-    photo_id        int not null references photo (id),
+    photo_id        int references photo (id),
     price           double precision
 );

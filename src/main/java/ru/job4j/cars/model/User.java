@@ -3,7 +3,6 @@ package ru.job4j.cars.model;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 @Entity
 @Table(name = "users")
@@ -78,15 +77,12 @@ public class User {
             return false;
         }
         User user = (User) o;
-        return id == user.id
-                && Objects.equals(name, user.name)
-                && Objects.equals(email, user.email)
-                && Objects.equals(password, user.password);
+        return id == user.id;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, email, password);
+        return getClass().hashCode();
     }
 
     @Override

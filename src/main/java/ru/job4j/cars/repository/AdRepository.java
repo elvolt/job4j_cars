@@ -93,6 +93,23 @@ public class AdRepository implements Store, AutoCloseable {
     }
 
     @Override
+    public Collection<Post> getPostsWithPhoto() {
+        return tx(
+                session -> session.createQuery(
+                        "select distinct post from Post post "
+                                + "join fetch post.model model "
+                                + "join fetch model.mark "
+                                + "join fetch post.body "
+                                + "join fetch post.transmission "
+                                + "join fetch post.user "
+                                + "join fetch post.photo "
+                                + "join Mark mark on mark.id = post.model.id "
+                                + "where post.photo is not null ", Post.class)
+                        .list()
+        );
+    }
+
+    @Override
     public void close() {
         StandardServiceRegistryBuilder.destroy(registry);
     }

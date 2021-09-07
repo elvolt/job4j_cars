@@ -10,4 +10,6 @@ public interface Store {
     Collection<Post> getPostsForLastDay();
 
     Collection<Post> getPostsByMark(String mark);
+
+    Collection<Post> getPostsWithPhoto();
 }

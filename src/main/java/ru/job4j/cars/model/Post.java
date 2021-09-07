@@ -3,10 +3,8 @@ package ru.job4j.cars.model;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Date;
-import java.util.Objects;
 
 @Entity
-@Table(name = "post")
 public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -122,22 +120,12 @@ public class Post {
             return false;
         }
         Post post = (Post) o;
-        return id == post.id
-                && isActive == post.isActive
-                && Objects.equals(description, post.description)
-                && Objects.equals(created, post.created)
-                && Objects.equals(model, post.model)
-                && Objects.equals(body, post.body)
-                && Objects.equals(transmission, post.transmission)
-                && Objects.equals(user, post.user)
-                && Objects.equals(photo, post.photo)
-                && Objects.equals(price, post.price);
+        return id == post.id;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, description, created, isActive, model, body,
-                transmission, user, photo, price);
+        return getClass().hashCode();
     }
 
     @Override
