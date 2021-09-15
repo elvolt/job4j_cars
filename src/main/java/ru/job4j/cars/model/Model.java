@@ -3,6 +3,7 @@ package ru.job4j.cars.model;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 public class Model {
@@ -73,7 +74,7 @@ public class Model {
 
     @Override
     public int hashCode() {
-        return getClass().hashCode();
+        return Objects.hash(id);
     }
 
     @Override

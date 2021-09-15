@@ -3,6 +3,7 @@ package ru.job4j.cars.model;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.Objects;
 
 @Entity
 public class Post {
@@ -125,7 +126,7 @@ public class Post {
 
     @Override
     public int hashCode() {
-        return getClass().hashCode();
+        return Objects.hash(id);
     }
 
     @Override

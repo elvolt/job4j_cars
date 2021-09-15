@@ -60,7 +60,7 @@ public class Mark {
 
     @Override
     public int hashCode() {
-        return getClass().hashCode();
+        return Objects.hash(id);
     }
 
     @Override

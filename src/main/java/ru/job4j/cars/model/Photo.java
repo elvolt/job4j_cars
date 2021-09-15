@@ -1,6 +1,7 @@
 package ru.job4j.cars.model;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 public class Photo {
@@ -46,7 +47,7 @@ public class Photo {
 
     @Override
     public int hashCode() {
-        return getClass().hashCode();
+        return Objects.hash(id);
     }
 
     @Override
